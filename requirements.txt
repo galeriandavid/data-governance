@@ -1,0 +1,7 @@
+matplotlib==3.5.2
+numpy==1.23.1
+pandas==1.4.3
+tqdm==4.64.0
+Pillow==9.2.0
+"dvc[gdrive]"
+torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116

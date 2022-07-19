@@ -1,0 +1,19 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - train.py
+    - train_data/
+    outs:
+    - experiment/checkpoint/
+    - experiment/train_log.csv
+  validation:
+    cmd: python validation.py
+    deps:
+    - validation.py
+    outs:
+    - experiment/best_batch.jpg
+    - experiment/worst_batch.jpg
+    metrics:
+    - experiment/loss.json:
+        cache: false

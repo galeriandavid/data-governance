@@ -1,0 +1,13 @@
+__pycache__/
+test_experiment/
+desktop.ini
+experiment/
+
+
+# Used by py.test
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+train_data/
+/train_data
