@@ -7,8 +7,8 @@ import torch
 
 
 class Trainer:
-    """Class for training pytorch nn model
-    """
+    """Class for training pytorch nn model"""
+
     def __init__(
         self,
         model,

@@ -45,8 +45,7 @@ true_labels = torch.Tensor(
 
 @pytest.mark.parametrize("predictions, expected_loss", [(pred_1, 0), (pred_2, 0.8888)])
 def test_dice_loss_value(predictions, expected_loss):
-    """Test dice loss output values
-    """
+    """Test dice loss output values"""
     loss_func = DiceLoss()
     loss = loss_func.forward(predictions, true_labels)
     print(loss)

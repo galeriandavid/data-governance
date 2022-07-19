@@ -15,7 +15,7 @@ from utils import split_image, concatenate_images
 
 
 def inference(img_path, experiment_path, batch_size, device=None):
-    """get predicted segmentation maskfor input tiff image 
+    """get predicted segmentation maskfor input tiff image
 
     Parameters
     ----------
@@ -63,10 +63,8 @@ def inference(img_path, experiment_path, batch_size, device=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--experiment",
-        type=str,
-        default="experiment/",
-        help="experiment path")
+        "--experiment", type=str, default="experiment/", help="experiment path"
+    )
     parser.add_argument(
         "--img_path",
         type=str,
@@ -74,7 +72,9 @@ if __name__ == "__main__":
         help="path to train data",
     )
     parser.add_argument("--batch_size", type=int, default=5, help="batch size")
-    parser.add_argument("--device", type=str, help="cpu or gpu by default use gpu if available")
+    parser.add_argument(
+        "--device", type=str, help="cpu or gpu by default use gpu if available"
+    )
     args = parser.parse_args()
 
     inference(args.img_path, args.experiment, args.batch_size, args.device)

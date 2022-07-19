@@ -76,8 +76,8 @@ def validate(experiment_path, data_path, batch_size, device):
                 dataset.classes,
                 experiment_path + "worst_batch.jpg",
             )
-    loss_json = {"val loss": sum(loss)/len(loss)}
-    with open(experiment_path+"loss.json", 'w') as f:
+    loss_json = {"val loss": sum(loss) / len(loss)}
+    with open(experiment_path + "loss.json", "w") as f:
         json.dump(loss_json, f)
 
 
@@ -105,10 +105,8 @@ def print_batch_predicitons(X_batch, y_batch, predictions, loss, classes, save_p
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--experiment",
-        type=str,
-        default="experiment/",
-        help="experiment path")
+        "--experiment", type=str, default="experiment/", help="experiment path"
+    )
     parser.add_argument(
         "--data_path",
         type=str,
