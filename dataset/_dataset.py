@@ -9,6 +9,7 @@ import json
 
 class SegmentationDataset(torch.utils.data.Dataset):
     """Pytorch custom dataset for image segmentation tasks"""
+
     def __init__(self, data_path, transform=None):
         self.data_path = data_path
         dataset = self._load_json(data_path)

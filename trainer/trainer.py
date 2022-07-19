@@ -7,8 +7,8 @@ import torch
 
 
 class Trainer:
-    """Class for training pytorch nn model
-    """
+    """Class for training pytorch nn model"""
+
     def __init__(
         self,
         model,
@@ -157,8 +157,7 @@ class Trainer:
         return loss
 
     def __setup_experiment(self):
-        """Create folders for new experiment
-        """
+        """Create folders for new experiment"""
         if not os.path.isdir(self.experiment_path):
             print("Create new experiment")
             os.makedirs(self.experiment_path + "checkpoint")

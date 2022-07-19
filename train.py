@@ -69,10 +69,8 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--experiment",
-        type=str,
-        default="experiment/",
-        help="experiment path")
+        "--experiment", type=str, default="experiment/", help="experiment path"
+    )
     parser.add_argument(
         "--data_path",
         type=str,
@@ -92,7 +90,7 @@ if __name__ == "__main__":
         "--device", type=str, help="cpu or gpu by default use gpu if available"
     )
     args = parser.parse_args()
- 
+
     main(
         args.experiment,
         args.data_path,
