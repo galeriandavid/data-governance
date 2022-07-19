@@ -1,11 +1,9 @@
 name: Tests
 
-on:
-  - push
-  - pull_request
+on: [push]
 
 jobs:
-  test:
+  run:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
