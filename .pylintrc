@@ -1,5 +1,5 @@
 [MASTER]
-disable=no-member,missing-module-docstring
+disable=no-member,missing-module-docstring,too-few-public-methods
 
 [BASIC]
 good-names=X_batch,x,i,j

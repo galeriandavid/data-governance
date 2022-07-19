@@ -1,9 +1,10 @@
-"""Script for inference 
+"""Script for inference
 usage:
 from inference import inference
 inference(img_path, experiment_path, batch_size, device)
 or
-python inference.py --experiment path/to/experiment/folder --img_path path/to/your/img.tiff"""
+python inference.py --experiment path/to/experiment/folder --img_path path/to/your/img.tiff
+"""
 
 
 import argparse
