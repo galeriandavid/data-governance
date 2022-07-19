@@ -5,12 +5,15 @@ stages:
     - train.py
     - train_data/
     outs:
-    - experiment/checkpoint/
+    - experiment/checkpoint/best.pt
+    - experiment/checkpoint/last.pt
     - experiment/train_log.csv
   validation:
     cmd: python validation.py
     deps:
     - validation.py
+    - experiment/checkpoint/best.pt
+    - train_data/
     outs:
     - experiment/best_batch.jpg
     - experiment/worst_batch.jpg

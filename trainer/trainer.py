@@ -159,7 +159,7 @@ class Trainer:
     def __setup_experiment(self):
         """Create folders for new experiment
         """
-        if not os.path.isdir(self.experiment_path):
+        if not os.path.isdir(self.experiment_path + "checkpoint"):
             print("Create new experiment")
             os.makedirs(self.experiment_path + "checkpoint")
         elif os.path.exists(self.experiment_path + "checkpoint/last.pt"):
