@@ -1,2 +1,3 @@
 ['remote "data"']
     url = gdrive://1UYVTNozsKp4jYsebXTKsS_wpmzM-LEuI
+    gdrive_use_service_account = false
