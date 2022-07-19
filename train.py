@@ -2,14 +2,14 @@
 usage:
 python train.py --experiment path/to/experiment/folder -- data_path path/to/your/data"""
 
-from model import UNet
-from loss import DiceLoss
-from trainer import Trainer
-from dataset import SegmentationDataset
-import matplotlib.pyplot as plt
-import torch
 import argparse
-from validation import validate
+
+import torch
+
+from dataset import SegmentationDataset
+from loss import DiceLoss
+from model import UNet
+from trainer import Trainer
 
 
 def main(

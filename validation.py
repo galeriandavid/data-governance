@@ -5,14 +5,16 @@ validate(experiment_path, data_path, batch_size, device)
 or
 python validation.py --experiment path/to/experiment/folder -- data_path path/to/your/val_data"""
 
-from model import UNet
+import argparse
+import json
+
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
+
 from dataset import SegmentationDataset
 from loss import DiceLoss
-import argparse
-import torch
-import numpy as np
-import json
-import matplotlib.pyplot as plt
+from model import UNet
 
 
 def validate(experiment_path, data_path, batch_size, device):
@@ -57,7 +59,7 @@ def validate(experiment_path, data_path, batch_size, device):
         if i == sorted_loss[0]:
             X_batch, y_batch = batch
             predictions = model(X_batch.to(device))
-            predictions = print_batch_predicitons(
+            print_batch_predicitons(
                 X_batch,
                 y_batch,
                 predictions,
@@ -68,7 +70,7 @@ def validate(experiment_path, data_path, batch_size, device):
         if i == sorted_loss[-1]:
             X_batch, y_batch = batch
             predictions = model(X_batch.to(device))
-            predictions = print_batch_predicitons(
+            print_batch_predicitons(
                 X_batch,
                 y_batch,
                 predictions,
@@ -77,8 +79,8 @@ def validate(experiment_path, data_path, batch_size, device):
                 experiment_path + "worst_batch.jpg",
             )
     loss_json = {"val loss": sum(loss) / len(loss)}
-    with open(experiment_path + "loss.json", "w") as f:
-        json.dump(loss_json, f)
+    with open(experiment_path + "loss.json", "w") as json_file:
+        json.dump(loss_json, json_file)
 
 
 def print_batch_predicitons(X_batch, y_batch, predictions, loss, classes, save_path):

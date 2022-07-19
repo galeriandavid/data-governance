@@ -72,9 +72,9 @@ class Trainer:
 
                 if j % 1 == 0:
                     pbar.set_postfix_str(
-                        "TRAIN LOSS: {:.6f} | VAL LOSS: {:.6f} | BEST VAL LOSS {:.6f}".format(
-                            batch_loss, val_loss, best_val_loss
-                        )
+                        f"TRAIN LOSS: {batch_loss:.6f} | "
+                        f"VAL LOSS: {val_loss:.6f} | "
+                        f"BEST VAL LOSS {best_val_loss:.6f}"
                     )
             train_loss /= train_data_len
 
@@ -94,9 +94,9 @@ class Trainer:
             self.__save_model_state(epoch, num_epochs, "last")
 
             pbar.set_postfix_str(
-                "TRAIN LOSS: {:.6f} | VAL LOSS: {:.6f} | BEST VAL LOSS {:.6f}".format(
-                    train_loss, val_loss, best_val_loss
-                )
+                f"TRAIN LOSS: {train_loss:.6f} | "
+                f"VAL LOSS: {val_loss:.6f} | "
+                f"BEST VAL LOSS {best_val_loss:.6f}"
             )
         train_log.close()
 
@@ -157,8 +157,7 @@ class Trainer:
         return loss
 
     def __setup_experiment(self):
-        """Create folders for new experiment
-        """
+        """Create folders for new experiment"""
         if not os.path.isdir(self.experiment_path + "checkpoint"):
             print("Create new experiment")
             os.makedirs(self.experiment_path + "checkpoint")

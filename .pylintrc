@@ -1,0 +1,5 @@
+[MASTER]
+disable=no-member,missing-module-docstring
+
+[BASIC]
+good-names=X_batch,x,i,j

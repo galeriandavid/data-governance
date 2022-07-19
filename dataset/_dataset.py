@@ -1,10 +1,11 @@
 """Pytorch custom dataset for image segmentation tasks
 """
+import json
 
 import torch
 from torchvision.io import read_image
+
 from utils import rle2mask
-import json
 
 
 class SegmentationDataset(torch.utils.data.Dataset):
@@ -33,11 +34,11 @@ class SegmentationDataset(torch.utils.data.Dataset):
         img_info = self.image_list[index]
         img = read_image(self.data_path + img_info["path"])
         img = img / 255
-        h, w = img.shape[1:]
-        mask = torch.zeros((self.num_classes, h, w), dtype=torch.int8)
+        height, width = img.shape[1:]
+        mask = torch.zeros((self.num_classes, height, width), dtype=torch.int8)
         for i in range(len(img_info["labels"])):
             mask[self._class_mapper[img_info["labels"][i]["class"]]] = rle2mask(
-                img_info["labels"][i]["rle"], (h, w)
+                img_info["labels"][i]["rle"], (height, width)
             )
 
         return img, mask
@@ -45,11 +46,6 @@ class SegmentationDataset(torch.utils.data.Dataset):
     @staticmethod
     def _load_json(data_path):
         """Load json with data descriptions and labels"""
-        with open(f"{data_path}labels.json") as f:
-            dataset = json.load(f)
+        with open(f"{data_path}labels.json") as json_file:
+            dataset = json.load(json_file)
         return dataset
-
-
-if __name__ == "__main__":
-    dataset = SegmentationDataset("tests/test_data/")
-    dataset[0]

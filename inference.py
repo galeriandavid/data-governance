@@ -5,12 +5,14 @@ inference(img_path, experiment_path, batch_size, device)
 or
 python inference.py --experiment path/to/experiment/folder --img_path path/to/your/img.tiff"""
 
-from model import UNet
+
 import argparse
-import torch
-import torchvision
 import numpy as np
 from PIL import Image
+import torch
+import torchvision
+
+from model import UNet
 from utils import split_image, concatenate_images
 
 
@@ -38,7 +40,6 @@ def inference(img_path, experiment_path, batch_size, device=None):
     model.eval()
 
     img = Image.open(img_path)
-    width, height = img.size
     img = img.resize((1536, 1536))
     img = torch.tensor(np.asarray(img))
     classes = ["kidney"]  # Fix
@@ -54,9 +55,9 @@ def inference(img_path, experiment_path, batch_size, device=None):
         predictions, output_size=(1536, 1536), stride=(128, 128)
     )
 
-    for i in range(len(classes)):
+    for i, cls in enumerate(classes):
         torchvision.utils.save_image(
-            predictions[i], img_path.replace(".tiff", f"_{classes[i]}.jpg")
+            predictions[i], img_path.replace(".tiff", f"_{cls}.jpg")
         )
 
 

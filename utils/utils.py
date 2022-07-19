@@ -93,7 +93,8 @@ def concatenate_images(
     Returns
     -------
     torch.tensor
-        return image obtained by cocatenating separate image tiles, shape: (n_channels, height, width)
+        return image obtained by cocatenating separate image tiles,
+        shape: (n_channels, height, width)
     """
     n_channels = imgs.shape[1]
     kernel_size = tuple(imgs.shape[2:])
