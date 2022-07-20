@@ -1,7 +1,7 @@
 __pycache__/
 test_experiment/
 desktop.ini
-experiment/
+experiment/checkpoint
 
 
 # Used by py.test
