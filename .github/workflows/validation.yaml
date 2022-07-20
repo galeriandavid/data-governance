@@ -9,6 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: iterative/setup-tools@v1
 
     - name: Install dependencies
       env:
