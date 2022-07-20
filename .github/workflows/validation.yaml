@@ -18,13 +18,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install "dvc[gdrive]"
 
-        dvc pull -r data
+    - name: DVC pull
+      run: dvc pull -r data
+      env:
+        GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
 
-        echo "## Model metrics" > report.md
-        cat experiment/loss.json >> report.md
+    - name: Generate report
+        run: |
+          echo "## Model metrics" > report.md
+          cat experiment/loss.json >> report.md
           
-        echo "## Data visualization" >> report.md
-        cml-publish experiment/best_batch.jpg --md >> report.md
-        cml-publish experiment/worst_batch.jpg --md >> report.md
+          echo "## Data visualization" >> report.md
+          cml-publish experiment/best_batch.jpg --md >> report.md
+          cml-publish experiment/worst_batch.jpg --md >> report.md
           
-        cml-send-comment report.md
+          cml-send-comment report.md
