@@ -1,8 +1,8 @@
 matplotlib
 numpy
 pandas
-tqdm==4.64.0
-Pillow==9.2.0
+tqdm
+Pillow
 dvc[gdrive]
 torch
 torchvision
