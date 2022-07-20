@@ -77,9 +77,9 @@ if __name__ == "__main__":
         default="train_data/processed_data/",
         help="path to train data",
     )
-    parser.add_argument("--batch_size", type=int, default=8, help="batch size")
-    parser.add_argument("--lr", type=float, default=5e-4, help="learning rate")
-    parser.add_argument("--num_epochs", type=int, default=1, help="number of epoch")
+    parser.add_argument("--batch_size", type=int, default=16, help="batch size")
+    parser.add_argument("--lr", type=float, default=1e-3, help="learning rate")
+    parser.add_argument("--num_epochs", type=int, default=100, help="number of epoch")
     parser.add_argument(
         "--resume",
         type=bool,

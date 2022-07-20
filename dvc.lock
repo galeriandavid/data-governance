@@ -4,28 +4,28 @@ stages:
     cmd: python train.py
     deps:
     - path: train.py
-      md5: 4bc08fe2d853ae79bfa869dac054d866
-      size: 2925
+      md5: 98eb66a014f139085fa239eaea2ae26d
+      size: 2927
     - path: train_data/
       md5: fec7f6cd4bf378c57f9c5ff5e443c1aa.dir
       size: 73287769
       nfiles: 248
     outs:
     - path: experiment/checkpoint/best.pt
-      md5: 650da7bb8ea399f78d7968c541fee5e6
-      size: 163220913
+      md5: e773fa1af617f2afa9588a8c0987565e
+      size: 163224753
     - path: experiment/checkpoint/last.pt
-      md5: 650da7bb8ea399f78d7968c541fee5e6
-      size: 163220913
+      md5: 38a23302bd68aae174196f68de49d30d
+      size: 163224753
     - path: experiment/train_log.csv
-      md5: b66911dd258294099640479670d658e5
-      size: 68
+      md5: 44d5d077adf8173511aa1136f75277cc
+      size: 4279
   validation:
     cmd: python validation.py
     deps:
     - path: experiment/checkpoint/best.pt
-      md5: 650da7bb8ea399f78d7968c541fee5e6
-      size: 163220913
+      md5: e773fa1af617f2afa9588a8c0987565e
+      size: 163224753
     - path: train_data/
       md5: fec7f6cd4bf378c57f9c5ff5e443c1aa.dir
       size: 73287769
@@ -35,11 +35,11 @@ stages:
       size: 4143
     outs:
     - path: experiment/best_batch.jpg
-      md5: 2f25a5b17bb7b50a8c4b8040c4ae480a
-      size: 179862
+      md5: dd14a85f0cd3aa0014ceed4d9abf97be
+      size: 156293
     - path: experiment/loss.json
-      md5: 69656f949a59277a077b94b187dec7e8
-      size: 32
+      md5: dfc7453c3948f5370bc0f32a3cd84494
+      size: 31
     - path: experiment/worst_batch.jpg
-      md5: 27a0cdbacd7de46487aeeac8dbbab498
-      size: 179040
+      md5: 1409370a1168511e225d5d04dcdaa976
+      size: 158076

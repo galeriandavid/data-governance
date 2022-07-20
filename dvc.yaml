@@ -7,7 +7,8 @@ stages:
     outs:
     - experiment/checkpoint/best.pt
     - experiment/checkpoint/last.pt
-    - experiment/train_log.csv
+    - experiment/train_log.csv:
+        cache: false
   validation:
     cmd: python validation.py
     deps:
@@ -15,8 +16,10 @@ stages:
     - experiment/checkpoint/best.pt
     - train_data/
     outs:
-    - experiment/best_batch.jpg
-    - experiment/worst_batch.jpg
+    - experiment/best_batch.jpg:
+        cache: false
+    - experiment/worst_batch.jpg:
+        cache: false
     metrics:
     - experiment/loss.json:
         cache: false
