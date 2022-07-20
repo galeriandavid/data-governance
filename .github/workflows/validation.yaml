@@ -16,7 +16,7 @@ jobs:
           git fetch --prune
 
           echo "## Model metrics" > report.md
-          dvc metrics show --show-md >> report.md
+          dvc metrics diff --show-md main >> report.md
 
           echo "## Best batch predictions" >> report.md
           cml-publish experiment/best_batch.jpg --md >> report.md
