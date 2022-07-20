@@ -89,7 +89,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--device", type=str, help="cpu or gpu by default use gpu if available"
     )
-    args = parser.parse_args()
+    args = parser.parse_args() 
 
     main(
         args.experiment,
